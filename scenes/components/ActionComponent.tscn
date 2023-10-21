@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwe62rnvy5ic5"]
+
+[ext_resource type="Script" path="res://scripts/components/ActionComponent.gd" id="1_orhq4"]
+
+[node name="ActionComponent" type="Node"]
+script = ExtResource("1_orhq4")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
