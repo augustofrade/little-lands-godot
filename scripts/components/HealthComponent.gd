@@ -1,9 +1,10 @@
 extends Node
+class_name HealthComponent
 
 signal healthReachZero
 
 @export_category("Health Setup")
-@export var maxHealth: float = 100.0
+@export var maxHealth: float = 100
 @export var currentHealth: float = 100
 
 
@@ -28,4 +29,5 @@ func removeHealth(value: float) -> void:
 func updateHealth(value: float) -> void:
 	currentHealth += value
 	if !hasHealthRemaining():
+		get_parent().queue_free()
 		healthReachZero.emit()

@@ -52,7 +52,5 @@ func onActionExecuted():
 	set_physics_process(false)
 	_state_machine.travel("action_axe")
 
-
-
 func onActionTimeout():
 	set_physics_process(true)

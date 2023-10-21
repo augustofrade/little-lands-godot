@@ -37,7 +37,18 @@ size = Vector2(24, 30)
 position = Vector2(1, -6)
 input_pickable = true
 gravity_scale = 0.0
+max_contacts_reported = 3
+contact_monitor = true
 script = ExtResource("1_giygg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 10
+text = "20/20"
+horizontal_alignment = 1
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -45,6 +56,8 @@ position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_o4ysk")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_bk1xw")]
+maxHealth = 20.0
+currentHealth = 20.0
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -65,5 +78,6 @@ show_behind_parent = true
 position = Vector2(-1, -9)
 shape = SubResource("RectangleShape2D_ivo3m")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="canHarvestNode" from="HarvestableComponent" to="." method="_onRegrowth"]
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
